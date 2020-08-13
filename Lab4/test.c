@@ -20,7 +20,12 @@
 
 pthread_mutex_t testMutex=PTHREAD_MUTEX_INITIALIZER;
 
-double time_diff(struct timeval x , struct timeval y)
+void printDegbugInfo()
+{
+	printf("Hello this is debug!\n");
+}
+
+double time_diff(struct timeval x , struct timeval y, int a)
 {
   double x_ms , y_ms , diff;
   x_ms = (double)x.tv_sec*1000000 + (double)x.tv_usec;
