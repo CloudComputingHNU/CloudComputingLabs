@@ -20,7 +20,7 @@
 
 pthread_mutex_t testMutex=PTHREAD_MUTEX_INITIALIZER;
 
-double time_diff(struct timeval x , struct timeval y)
+double time_diff(struct timeval x , struct timeval y, int currentTime)
 {
   double x_ms , y_ms , diff;
   x_ms = (double)x.tv_sec*1000000 + (double)x.tv_usec;
@@ -31,7 +31,13 @@ double time_diff(struct timeval x , struct timeval y)
     fprintf(stderr, "ERROR! time_diff<0\n");
     exit(1);
   }
+  printf("CurrentTime is %d\n",currentTime);
   return diff;
+}
+
+double CountAvgDelay(double totalTime, int runTimes)
+{
+  return totalTime/runTimes;
 }
 
 int main(int argc, char *argv[])
